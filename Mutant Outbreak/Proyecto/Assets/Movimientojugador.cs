@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movimiento : MonoBehaviour
@@ -11,26 +9,34 @@ public class Movimiento : MonoBehaviour
     private float movimientoY;
     private Animator animator;
 
-    private void Start() {
+    private void Start()
+    {
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>(); 
     }
 
-    private void Update() {
+    private void Update()
+    {
+        // Obtener la entrada del jugador
         movimientoX = Input.GetAxisRaw("Horizontal");
         movimientoY = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("MovimientoX",movimientoX);
-        animator.SetFloat("MovimientoY",movimientoY);
-        if(movimientoX != 0 || movimientoY != 0){
-            animator.SetFloat("UltimoX",movimientoX);
-            animator.SetFloat("UltimoY",movimientoY);
-
+        // Actualizar la animación del personaje
+        animator.SetFloat("MovimientoX", movimientoX);
+        animator.SetFloat("MovimientoY", movimientoY);
+        if (movimientoX != 0 || movimientoY != 0)
+        {
+            animator.SetFloat("UltimoX", movimientoX);
+            animator.SetFloat("UltimoY", movimientoY);
         }
+
+        // Calcular la dirección normalizada del movimiento
         direccion = new Vector2(movimientoX, movimientoY).normalized;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
+        // Mover el Rigidbody del personaje
         rb2d.MovePosition(rb2d.position + direccion * velocidadMovimiento * Time.fixedDeltaTime); 
     }
 }
