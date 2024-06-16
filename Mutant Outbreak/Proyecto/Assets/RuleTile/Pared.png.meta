@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 103ad28659b38614098dd1d82a3d701d
+guid: cd34ab6253e43d3439dc3a70eb544eb3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piso-de-madera_0
+      name: Pared_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b955660e35d718e48959789233822da3
-      internalID: -1057473273
+      spriteID: 705bd10519d8c244c9aa73e22cd2d20a
+      internalID: 1496075780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_1
+      name: Pared_1
       rect:
         serializedVersion: 2
         x: 32
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ba8e1b43869394b9eceeb2006ae525
-      internalID: -1034785939
+      spriteID: 5e55f608cd180e64981bc003f611fe7c
+      internalID: 2107980799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_2
+      name: Pared_2
       rect:
         serializedVersion: 2
         x: 64
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1749b2542157c554cac35b225d619cb6
-      internalID: 1244023382
+      spriteID: 08d8d2f2fc36cc84593e0af6d85209a4
+      internalID: -1188350317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_3
+      name: Pared_3
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209bca716185baa48b9115fdae82049a
-      internalID: 1585266238
+      spriteID: 3663d5e1ca312b44684a01b87ca3fd54
+      internalID: -1469639854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_4
+      name: Pared_4
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c770dd8b2c7052742ad023fde6ab99c6
-      internalID: 354606314
+      spriteID: c9742fa72b564724db3de1b2fbb19724
+      internalID: -201690112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_5
+      name: Pared_5
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55dcb813fb6d86144933aa1fc7d2e079
-      internalID: 2145307494
+      spriteID: e7736cb9869ef7045925fdc531ec142d
+      internalID: -1315660204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_6
+      name: Pared_6
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc171c03c2aa3b64985d73299eb0d43c
-      internalID: 2139315852
+      spriteID: 1b793f56e63ba0b438fcd8e22ef6b4e6
+      internalID: -383579770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_7
+      name: Pared_7
       rect:
         serializedVersion: 2
         x: 32
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6637fdb91ee778b418b8ebe4fcce5246
-      internalID: 2035024981
+      spriteID: 0cb48574c537b2648a63a44e5137b0a7
+      internalID: -289581983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_8
+      name: Pared_8
       rect:
         serializedVersion: 2
         x: 64
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc853c0e94337634c8d4ebaa7e3e0244
-      internalID: 1425635931
+      spriteID: 168163ff56892c04faf5632cfcfe9b1b
+      internalID: -2051110316
       vertices: []
       indices: 
       edges: []
@@ -296,15 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      piso-de-madera_0: -1057473273
-      piso-de-madera_1: -1034785939
-      piso-de-madera_2: 1244023382
-      piso-de-madera_3: 1585266238
-      piso-de-madera_4: 354606314
-      piso-de-madera_5: 2145307494
-      piso-de-madera_6: 2139315852
-      piso-de-madera_7: 2035024981
-      piso-de-madera_8: 1425635931
+      Pared_0: 1496075780
+      Pared_1: 2107980799
+      Pared_2: -1188350317
+      Pared_3: -1469639854
+      Pared_4: -201690112
+      Pared_5: -1315660204
+      Pared_6: -383579770
+      Pared_7: -289581983
+      Pared_8: -2051110316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

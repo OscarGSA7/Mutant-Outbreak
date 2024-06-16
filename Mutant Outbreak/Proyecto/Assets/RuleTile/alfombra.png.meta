@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 103ad28659b38614098dd1d82a3d701d
+guid: 30b252290b78bcb4295bbca652851162
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piso-de-madera_0
+      name: alfombra_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b955660e35d718e48959789233822da3
-      internalID: -1057473273
+      spriteID: fc53345aa58ee8c409f7da7bb21684d9
+      internalID: 563433274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_1
+      name: alfombra_1
       rect:
         serializedVersion: 2
         x: 32
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ba8e1b43869394b9eceeb2006ae525
-      internalID: -1034785939
+      spriteID: a530e6bfd83a3bd4e83c5274d8ce32a5
+      internalID: -725645836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_2
+      name: alfombra_2
       rect:
         serializedVersion: 2
         x: 64
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1749b2542157c554cac35b225d619cb6
-      internalID: 1244023382
+      spriteID: 073abc34b05d0b84abbf0c2f6257c1c7
+      internalID: -1858279129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_3
+      name: alfombra_3
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209bca716185baa48b9115fdae82049a
-      internalID: 1585266238
+      spriteID: f55502a2f20d5564c9a8b17cabc4c642
+      internalID: -1874684886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_4
+      name: alfombra_4
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c770dd8b2c7052742ad023fde6ab99c6
-      internalID: 354606314
+      spriteID: 1accc01fac61a254ab8392e20dd6af8b
+      internalID: -809579939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_5
+      name: alfombra_5
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55dcb813fb6d86144933aa1fc7d2e079
-      internalID: 2145307494
+      spriteID: 01eb1bd7a32a5004f8001b52b04dafc0
+      internalID: -150908158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_6
+      name: alfombra_6
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc171c03c2aa3b64985d73299eb0d43c
-      internalID: 2139315852
+      spriteID: 954baa5b4c8224f468ba36c01da069f5
+      internalID: 1349152286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_7
+      name: alfombra_7
       rect:
         serializedVersion: 2
         x: 32
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6637fdb91ee778b418b8ebe4fcce5246
-      internalID: 2035024981
+      spriteID: bf6fc3a7286b5dc458c252dbdb19166b
+      internalID: -1705561519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_8
+      name: alfombra_8
       rect:
         serializedVersion: 2
         x: 64
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc853c0e94337634c8d4ebaa7e3e0244
-      internalID: 1425635931
+      spriteID: e355c0447055e1a4da6481a708282495
+      internalID: 1053151488
       vertices: []
       indices: 
       edges: []
@@ -296,15 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      piso-de-madera_0: -1057473273
-      piso-de-madera_1: -1034785939
-      piso-de-madera_2: 1244023382
-      piso-de-madera_3: 1585266238
-      piso-de-madera_4: 354606314
-      piso-de-madera_5: 2145307494
-      piso-de-madera_6: 2139315852
-      piso-de-madera_7: 2035024981
-      piso-de-madera_8: 1425635931
+      alfombra_0: 563433274
+      alfombra_1: -725645836
+      alfombra_2: -1858279129
+      alfombra_3: -1874684886
+      alfombra_4: -809579939
+      alfombra_5: -150908158
+      alfombra_6: 1349152286
+      alfombra_7: -1705561519
+      alfombra_8: 1053151488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

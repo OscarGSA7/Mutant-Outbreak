@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 103ad28659b38614098dd1d82a3d701d
+guid: adc0e53c3b5789f48b4fde75efd8438f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piso-de-madera_0
+      name: Ambiente1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,56 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b955660e35d718e48959789233822da3
-      internalID: -1057473273
+      spriteID: 68c296476f2cb5e458b185171ad834c6
+      internalID: -1642992232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2ba8e1b43869394b9eceeb2006ae525
-      internalID: -1034785939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: piso-de-madera_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1749b2542157c554cac35b225d619cb6
-      internalID: 1244023382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: piso-de-madera_3
+      name: Ambiente1_1
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209bca716185baa48b9115fdae82049a
-      internalID: 1585266238
+      spriteID: be5a8b9c6a6a30748b9c207eab97c2d8
+      internalID: 422137491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_4
+      name: Ambiente1_2
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c770dd8b2c7052742ad023fde6ab99c6
-      internalID: 354606314
+      spriteID: 8a41c605a2916cf469e91612657662be
+      internalID: -1128890390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_5
+      name: Ambiente1_3
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +174,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55dcb813fb6d86144933aa1fc7d2e079
-      internalID: 2145307494
+      spriteID: 422de6d069b2d5745b8e44458110bcef
+      internalID: -1434405957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_6
+      name: Ambiente1_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf207efeaa6ced04686e96d8dde44839
+      internalID: -770563338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambiente1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc171c03c2aa3b64985d73299eb0d43c
-      internalID: 2139315852
+      spriteID: 04e7e989f8ca7ce4092b4f22d58a25e4
+      internalID: -131769430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_7
+      name: Ambiente1_6
       rect:
         serializedVersion: 2
         x: 32
@@ -258,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6637fdb91ee778b418b8ebe4fcce5246
-      internalID: 2035024981
+      spriteID: dc4b23d001bae184c8b27400ca2fd7af
+      internalID: -822256711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piso-de-madera_8
+      name: Ambiente1_7
       rect:
         serializedVersion: 2
         x: 64
@@ -279,8 +258,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc853c0e94337634c8d4ebaa7e3e0244
-      internalID: 1425635931
+      spriteID: ac09dd628ed8644479cb5487cf1b948a
+      internalID: 1429019853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambiente1_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52013bd72c0594b4b80809857809b82b
+      internalID: 65213019
       vertices: []
       indices: 
       edges: []
@@ -296,15 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      piso-de-madera_0: -1057473273
-      piso-de-madera_1: -1034785939
-      piso-de-madera_2: 1244023382
-      piso-de-madera_3: 1585266238
-      piso-de-madera_4: 354606314
-      piso-de-madera_5: 2145307494
-      piso-de-madera_6: 2139315852
-      piso-de-madera_7: 2035024981
-      piso-de-madera_8: 1425635931
+      Ambiente1_0: -1642992232
+      Ambiente1_1: 422137491
+      Ambiente1_2: -1128890390
+      Ambiente1_3: -1434405957
+      Ambiente1_4: -770563338
+      Ambiente1_5: -131769430
+      Ambiente1_6: -822256711
+      Ambiente1_7: 1429019853
+      Ambiente1_8: 65213019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
