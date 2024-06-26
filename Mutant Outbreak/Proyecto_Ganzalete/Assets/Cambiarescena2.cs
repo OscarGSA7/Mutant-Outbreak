@@ -12,7 +12,13 @@ public class Cambiarescena2 : MonoBehaviour
     }
 
     public void CambiarAEscena1(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+    }
+    public void CambiarAEscena3(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void CambiarAEscena4(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void salir()
     {

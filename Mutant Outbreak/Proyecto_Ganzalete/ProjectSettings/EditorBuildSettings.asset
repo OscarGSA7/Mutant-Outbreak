@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trabajete2.unity
     guid: 828ca843433af48418badf2de2d6d450
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: e498daa9b46948f4e9d0dc08664ea531
+  - enabled: 1
+    path: Assets/Scenes/Trabajo3.unity
+    guid: b49e8ceb83679e14685a843691dfd590
+  - enabled: 1
+    path: Assets/Scenes/Trabajete4.unity
+    guid: 4d379c560a556dd4280f028fe2818593
   m_configObjects: {}
