@@ -1,19 +1,25 @@
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class TopDownCameraFollow : MonoBehaviour
 {
-    public Transform player; 
+    public Transform jugador; // Referencia al transform del jugador
+    public Vector3 offset; // Desplazamiento de la cámara respecto al jugador
 
-    void LateUpdate()
+    private void Start()
     {
-        
-        if (player != null)
+        // Verificar si el jugador fue asignado
+        if (jugador == null)
         {
-            
-            Vector3 targetPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
-            
-            
-            transform.position = targetPosition;
+            Debug.LogError("No se asignó el jugador al script de seguimiento de cámara.");
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (jugador != null)
+        {
+            // Actualizar la posición de la cámara para seguir al jugador con el offset
+            transform.position = new Vector3(jugador.position.x, jugador.position.y, transform.position.z) + offset;
         }
     }
 }

@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
     public float velocidadMovimiento = 2.0f; 
     public int daño = 20; 
     
-    [Header("Animacion")]
     private Animator animator;
+    private Vector2 direccionMovimiento;
 
     private void Start()
     {
@@ -18,19 +18,16 @@ public class Enemy : MonoBehaviour
     {
         if (jugador != null)
         {
-            // Calcular la dirección y moverse hacia el jugador
+            
             Vector3 direccion = (jugador.position - transform.position).normalized;
-            transform.position += direccion * velocidadMovimiento * Time.deltaTime;
+            direccionMovimiento = new Vector2(direccion.x, direccion.y);
 
-            // Actualizar la animación del movimiento
-            if (direccion != Vector3.zero)
-            {
-                animator.SetBool("isMoving", true);
-            }
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
+            
+            transform.position += (Vector3)direccionMovimiento * velocidadMovimiento * Time.deltaTime;
+
+            
+            animator.SetFloat("MovimientoX", direccionMovimiento.x);
+            
         }
     }
 
