@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BarraDeVida : MonoBehaviour
 {
-  private Slider slider;
+    public Slider slider;
 
-  private void Start(){
-    slider = GetComponent<Slider>();
+    public void CambiarVidaMaxima(float vidaMaxima)
+    {
+        slider.maxValue = vidaMaxima;
+    }
 
-  }
+    public void InicializarBarraDeVida(float cantidadVida)
+    {
+        CambiarVidaMaxima(cantidadVida);
+        slider.value = cantidadVida;
+    }
 
-  public void CambiarVidaMaxima(float vidaMaxima){
-    slider.maxValue = vidaMaxima;
-  }
-  public void CambiarVidaActual(float cantidadVida){
-    slider.value = cantidadVida;
-  }
-  public void InicializarBarraDeVida(float cantidadVida){
-    CambiarVidaMaxima(cantidadVida);
-    CambiarVidaActual(cantidadVida);
-  }
+    public void CambiarVidaActual(float vida)
+    {
+        slider.value = vida;
+    }
 }

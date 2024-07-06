@@ -17,11 +17,11 @@ public class Movimiento : MonoBehaviour
 
     private void Update()
     {
-        // Obtener la entrada del jugador
+        
         movimientoX = Input.GetAxisRaw("Horizontal");
         movimientoY = Input.GetAxisRaw("Vertical");
 
-        // Actualizar la animación del personaje
+        
         animator.SetFloat("MovimientoX", movimientoX);
         animator.SetFloat("MovimientoY", movimientoY);
         if (movimientoX != 0 || movimientoY != 0)
@@ -30,13 +30,13 @@ public class Movimiento : MonoBehaviour
             animator.SetFloat("UltimoY", movimientoY);
         }
 
-        // Calcular la dirección normalizada del movimiento
+        
         direccion = new Vector2(movimientoX, movimientoY).normalized;
     }
 
     private void FixedUpdate()
     {
-        // Mover el Rigidbody del personaje
+        
         rb2d.MovePosition(rb2d.position + direccion * velocidadMovimiento * Time.fixedDeltaTime); 
     }
 }
