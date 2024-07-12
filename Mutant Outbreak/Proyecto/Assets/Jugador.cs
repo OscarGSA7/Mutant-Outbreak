@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Jugador : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Jugador : MonoBehaviour
 
     private void Start()
     {
-        // Iniciar la corrutina de regeneración de vida
+        
         StartCoroutine(RegenerarVida());
-        // Inicializar la barra de vida con la vida actual
+        
         barraDeVida.InicializarBarraDeVida(vida);
     }
 
@@ -33,28 +34,29 @@ public class Jugador : MonoBehaviour
     {
         Debug.Log("Jugador ha muerto.");
         Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
     private IEnumerator RegenerarVida()
     {
         while (true)
         {
-            // Esperar el intervalo de tiempo antes de regenerar vida
+            
             yield return new WaitForSeconds(tiempoRegeneracion);
 
-            // Regenerar vida
+            
             if (vida > 0 && vida < vidaMaxima)
             {
                 vida += cantidadRegeneracion;
 
-                // Asegurarse de que la vida no exceda la vida máxima
+                
                 if (vida > vidaMaxima)
                 {
                     vida = vidaMaxima;
                 }
 
                 Debug.Log("Jugador ha regenerado vida. Vida actual: " + vida);
-                // Actualizar la barra de vida
+                
                 barraDeVida.CambiarVidaActual(vida);
             }
         }
