@@ -18,10 +18,18 @@ public class Movimiento : MonoBehaviour
     private void Update()
     {
         
+        if (Input.GetKey(KeyCode.Q))
+        {
+            velocidadMovimiento = 0.5f;
+        }
+        else
+        {
+            velocidadMovimiento = 6.0f; 
+        }
+
         movimientoX = Input.GetAxisRaw("Horizontal");
         movimientoY = Input.GetAxisRaw("Vertical");
 
-        
         animator.SetFloat("MovimientoX", movimientoX);
         animator.SetFloat("MovimientoY", movimientoY);
         if (movimientoX != 0 || movimientoY != 0)
@@ -30,13 +38,11 @@ public class Movimiento : MonoBehaviour
             animator.SetFloat("UltimoY", movimientoY);
         }
 
-        
         direccion = new Vector2(movimientoX, movimientoY).normalized;
     }
 
     private void FixedUpdate()
     {
-        
         rb2d.MovePosition(rb2d.position + direccion * velocidadMovimiento * Time.fixedDeltaTime); 
     }
 }
