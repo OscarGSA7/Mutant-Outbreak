@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,24 @@ public class Pausa : MonoBehaviour
     [SerializeField] private GameObject menuPausa;
 
     private bool isPaused = false;
+    private bool juegoPausado = false;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            if(juegoPausado)
+            {
+                Resume();
+                }else{
+                    pausa();
+                }
+            
+        }
+    }
 
     public void pausa()
     {
+        juegoPausado = true;
         if (!isPaused)
         {
             Time.timeScale = 0f;
@@ -23,6 +39,7 @@ public class Pausa : MonoBehaviour
 
     public void Resume()
     {
+        juegoPausado = false;
         if (isPaused)
         {
             Time.timeScale = 1f;
