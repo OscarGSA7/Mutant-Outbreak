@@ -7,36 +7,17 @@ public class Jugador : MonoBehaviour
     public int vida = 100;
     public int vidaMaxima = 100;
     public int cantidadRegeneracion = 10;
-    public float tiempoRegeneracionBase = 3.0f; // Tiempo de regeneración base
-    public float ajusteTiempoRegeneracion = 1.0f; // Ajuste del tiempo de regeneración (multiplicador)
-    public float tiempoRegeneracion { get { return tiempoRegeneracionBase * ajusteTiempoRegeneracion; } } // Tiempo de regeneración actual
+    public float tiempoRegeneracionBase = 3.0f;
+    public float ajusteTiempoRegeneracion = 1.0f;
+    public float tiempoRegeneracion { get { return tiempoRegeneracionBase * ajusteTiempoRegeneracion; } }
 
     public BarraDeVida barraDeVida;
-
-    public Transform puntoDisparo; 
-    public GameObject prefabBala; 
-
-    private Vector2 direccionDisparo = Vector2.right;
+    public CameraShake cameraShake;
 
     private void Start()
     {
         StartCoroutine(RegenerarVida());
         barraDeVida.InicializarBarraDeVida(vida);
-    }
-
-    private void Update()
-    {
-        // Determinar la dirección de disparo
-        if (Input.GetKey(KeyCode.W)) direccionDisparo = Vector2.up;
-        if (Input.GetKey(KeyCode.A)) direccionDisparo = Vector2.left;
-        if (Input.GetKey(KeyCode.S)) direccionDisparo = Vector2.down;
-        if (Input.GetKey(KeyCode.D)) direccionDisparo = Vector2.right;
-
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            Disparar();
-        }
     }
 
     public void TomarDaño(int daño)
@@ -48,6 +29,11 @@ public class Jugador : MonoBehaviour
         if (vida <= 0)
         {
             Muerte();
+        }
+
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeCamera(2f, 0.2f); 
         }
     }
 
@@ -76,16 +62,6 @@ public class Jugador : MonoBehaviour
                 Debug.Log("Jugador ha regenerado vida. Vida actual: " + vida);
                 barraDeVida.CambiarVidaActual(vida);
             }
-        }
-    }
-
-    private void Disparar()
-    {
-        GameObject bala = Instantiate(prefabBala, puntoDisparo.position, Quaternion.identity);
-        Bala balaScript = bala.GetComponent<Bala>();
-        if (balaScript!= null)
-        {
-            balaScript.DireccionDisparo(direccionDisparo);
         }
     }
 }

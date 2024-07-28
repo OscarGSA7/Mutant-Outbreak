@@ -5,8 +5,11 @@ public class Enemy : MonoBehaviour
 {
     public float velocidadMovimiento = 2.0f; 
     public int daño = 20; 
-    public int vida = 100; 
-
+    public int vidaMaxima = 100;
+    private int vidaActual;
+    public GameObject prefabBarraDeVidaZombi;
+    public BarraDeVidaZombie barraDeVida { get; set; }
+    public bool isDead = false;
     private Transform jugador; 
     private Animator animator; 
     private Vector2 direccion; 
@@ -16,23 +19,28 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>(); 
         jugador = GameObject.FindWithTag("Jugador").transform; 
+        vidaActual = vidaMaxima;
+        
+        
+        GameObject barra = Instantiate(prefabBarraDeVidaZombi, transform.position + new Vector3(0, 1, 0), Quaternion.identity, transform);
+        barraDeVida = barra.GetComponent<BarraDeVidaZombie>();
+
+        
+        barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
     }
 
     private void Update()
     {
         if (jugador != null)
         {
-            
             direccion = (jugador.position - transform.position).normalized;
 
-            
             if (direccion != Vector2.zero)
             {
                 animator.SetFloat("Horizontal", direccion.x);
                 animator.SetFloat("Vertical", direccion.y);
             }
 
-            
             transform.position += (Vector3)direccion * velocidadMovimiento * Time.deltaTime;
         }
     }
@@ -71,10 +79,12 @@ public class Enemy : MonoBehaviour
 
     public void RecibirDaño(int daño)
     {
-        vida -= daño;
-        Debug.Log("Daño hacia chombi de: " + daño);
-        Debug.Log("Vida de zombie:" + vida);
-        if (vida <= 0)
+        vidaActual -= daño;
+
+        
+        barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
+
+        if (vidaActual <= 0)
         {
             Muerte();
         }
@@ -82,6 +92,9 @@ public class Enemy : MonoBehaviour
 
     private void Muerte()
     {
-        Destroy(gameObject);
+
+        isDead = true;
+        animator.SetTrigger("isDead");
+        Destroy(gameObject, 0.6f);
     }
 }

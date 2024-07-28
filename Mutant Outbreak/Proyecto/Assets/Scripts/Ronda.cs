@@ -7,9 +7,11 @@ public class ControladorJuego : MonoBehaviour
 {
     public TextMeshProUGUI textoRonda;
     public GameObject prefabZombie;
+    public GameObject prefabBarraDeVidaZombie;
     public int zombiesPorRondaInicial = 4;
     public float tiempoEntreRondas = 10.0f;
     public float cooldownEntreZombies = 1.0f;
+    public Vector3[] posicionesZombies;
 
     private int rondaActual = 0;
     private bool cambiandoDeRonda = false;
@@ -34,7 +36,7 @@ public class ControladorJuego : MonoBehaviour
                 rondaActual++;
                 zombiesPorRondaInicial += 4;
                 ActualizarTextoRonda();
-                SpawnearZombies();
+                StartCoroutine(GenerarZombiesConCooldown());
 
                 cambiandoDeRonda = false;
             }
@@ -46,31 +48,32 @@ public class ControladorJuego : MonoBehaviour
         textoRonda.text = "" + rondaActual;
     }
 
-    private void SpawnearZombies()
-    {
-        StartCoroutine(GenerarZombiesConCooldown());
-    }
-
     private IEnumerator GenerarZombiesConCooldown()
     {
         for (int i = 0; i < zombiesPorRondaInicial; i++)
         {
-            Vector3 randomPosition = GetRandomSpawnPosition();
-            Instantiate(prefabZombie, randomPosition, Quaternion.identity);
+            int randomIndex = Random.Range(0, posicionesZombies.Length);
+            Vector2 posicion = posicionesZombies[randomIndex];
+            GameObject zombie = Instantiate(prefabZombie, posicion, Quaternion.identity);
+
+            
+            GameObject barra = Instantiate(prefabBarraDeVidaZombie, zombie.transform.position + new Vector3(0, 1, 0), Quaternion.identity, zombie.transform);
+            BarraDeVidaZombie barraDeVida = barra.GetComponent<BarraDeVidaZombie>();
+
+            
+            Enemy zombieScript = zombie.GetComponent<Enemy>();
+            if (zombieScript != null)
+            {
+                zombieScript.prefabBarraDeVidaZombi = prefabBarraDeVidaZombie; // Ahora puedes asignar el valor
+                zombieScript.barraDeVida = barraDeVida;
+            }
 
             yield return new WaitForSeconds(cooldownEntreZombies);
         }
     }
 
-    private Vector3 GetRandomSpawnPosition()
-    {
-        float randomX = Random.Range(-10f, 10f);
-        float randomY = Random.Range(-10f, 10f);
-        return new Vector3(randomX, randomY, 0f);
-    }
-
     private bool HayZombiesEnPartida()
     {
-        return GameObject.FindGameObjectWithTag("Enemigo") != null;
+        return GameObject.FindGameObjectsWithTag("Enemigo").Any(zombie => zombie.activeSelf);
     }
 }

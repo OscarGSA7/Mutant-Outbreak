@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public int daño = 20; // Daño que la bala causa
-    public float velocidadBala = 10.0f; // Velocidad de la bala
+    public int daño = 50; 
+    public float velocidadBala = 10.0f; 
     private Vector2 direccion;
 
     public void DireccionDisparo(Vector2 direccion)
     {
-        this.direccion = direccion.normalized; // Normaliza la dirección de disparo
+        this.direccion = direccion.normalized; 
     }
 
     private void Update()
     {
         transform.Translate(direccion * velocidadBala * Time.deltaTime);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,7 +26,7 @@ public class Bala : MonoBehaviour
             {
                 enemigoScript.RecibirDaño(daño);
             }
-            Destroy(gameObject); // Destruir la bala al impactar
+            Destroy(gameObject); 
         }
     }
 }
