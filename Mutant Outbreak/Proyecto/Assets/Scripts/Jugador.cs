@@ -41,7 +41,7 @@ public class Jugador : MonoBehaviour
     {
         Debug.Log("Jugador ha muerto.");
         Destroy(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private IEnumerator RegenerarVida()
