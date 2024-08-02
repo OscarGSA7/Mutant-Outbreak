@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2460199927713042709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0.48, z: -0.020618841}
-  m_LocalScale: {x: 0.063761, y: 0.063761, z: 0.63761}
+  m_LocalPosition: {x: 1.0447, y: 0.35473, z: -0.020618841}
+  m_LocalScale: {x: 0.3050146, y: 0.3050146, z: 3.050146}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810c4a02825c2da48867a8c340bfd35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 20
-  velocidadBala: 20
+  "da\xF1o": 50
+  velocidadBala: 30

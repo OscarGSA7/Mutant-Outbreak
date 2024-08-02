@@ -34,7 +34,7 @@ public class ControladorJuego : MonoBehaviour
                 yield return new WaitForSeconds(tiempoEntreRondas);
 
                 rondaActual++;
-                zombiesPorRondaInicial += 4;
+                zombiesPorRondaInicial += 3;
                 ActualizarTextoRonda();
                 StartCoroutine(GenerarZombiesConCooldown());
 

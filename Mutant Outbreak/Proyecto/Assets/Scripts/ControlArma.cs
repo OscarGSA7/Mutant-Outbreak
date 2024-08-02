@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ControlArma : MonoBehaviour
 {
-    public GameObject balaPrefab; // Prefab de la bala
-    public Transform puntoDisparo; // Punto desde donde se disparan las balas
+    public GameObject balaPrefab; 
+    public Transform puntoDisparo; 
     public float velocidadBala = 20f;
-    public float tiempoEntreDisparos = 1.0f; // Tiempo entre disparos
-    private float tiempoUltimoDisparo; // Tiempo del último disparo
+    public float tiempoEntreDisparos = 1.0f;
+    private float tiempoUltimoDisparo; 
 
     private float movimientoX;
     private float movimientoY;
@@ -19,7 +19,7 @@ public class ControlArma : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        ultimaDireccion = Vector2.right; 
+        ultimaDireccion = Vector2.left; 
         tiempoUltimoDisparo = -tiempoEntreDisparos; 
 
         

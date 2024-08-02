@@ -81,18 +81,30 @@ public class Enemy : MonoBehaviour
     {
         vidaActual -= daño;
 
-        
         barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
+
+        
+        
+        if (daño > 0 && !isDead)
+    {
+        animator.SetBool("Daño", true);
+        Invoke("DesactivarDaño", 0.3f);
+    }
 
         if (vidaActual <= 0)
         {
             Muerte();
         }
     }
+    private void DesactivarDaño()
+    {
+        animator.SetBool("Daño", false);
+    }
 
     private void Muerte()
     {
 
+        velocidadMovimiento = 0;
         isDead = true;
         animator.SetTrigger("isDead");
         Destroy(gameObject, 0.6f);
