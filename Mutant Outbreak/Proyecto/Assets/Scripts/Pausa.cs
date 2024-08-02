@@ -105,7 +105,7 @@ public class Pausa : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void MostrarOpciones()
+    public void MostrarOpciones()
     {
         menuPausa.SetActive(false);
         panelOpciones.SetActive(true);
