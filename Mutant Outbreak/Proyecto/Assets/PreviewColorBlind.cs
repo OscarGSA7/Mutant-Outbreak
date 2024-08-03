@@ -13,9 +13,9 @@ public class VistaPreviaController : MonoBehaviour
     [SerializeField] private VideoClip protanopiaVideo;
     [SerializeField] private VideoClip tritanopiaVideo;
 
-    private string deuteranopiaDescripcion = "Deuteranopia: Red-green color blindness.";
-    private string protanopiaDescripcion = "Protanopia: Red-green color blindness.";
-    private string tritanopiaDescripcion = "Tritanopia: Blue-yellow color blindness.";
+    private string deuteranopiaDescripcion = "Deuteranopia: Filtro para tonos verdes.";
+    private string protanopiaDescripcion = "Protanopia: Filtro para tonos rojos.";
+    private string tritanopiaDescripcion = "Tritanopia: Filtro para tonos azules.";
 
     private void Start()
     {
