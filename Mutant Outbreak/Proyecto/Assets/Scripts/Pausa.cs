@@ -126,4 +126,13 @@ public class Pausa : MonoBehaviour
 
         panel.SetActive(true);
     }
+public void HideOpcionesMenu()
+{
+    if (panelOpciones != null && menuPausa != null)
+    {
+        panelOpciones.SetActive(false); // Oculta el menú de opciones
+        menuPausa.SetActive(false); // Oculta el menú de pausa
+        Resume(); // Resuma el juego
+    }
+}
 }

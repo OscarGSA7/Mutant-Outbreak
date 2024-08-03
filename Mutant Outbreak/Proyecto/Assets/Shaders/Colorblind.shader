@@ -1,7 +1,3 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Copyright (c) 2016 Jakub Boksansky, Adam Pospisil - All Rights Reserved
-// Colorblind Effect Unity Plugin 1.0
 Shader "Hidden/Wilberforce/Colorblind"
 {
 	Properties
@@ -25,28 +21,27 @@ Shader "Hidden/Wilberforce/Colorblind"
 
 			#include "UnityCG.cginc"
 
-			// says which matrix we should use in fragment shader
-			// this is passed from the Csharp script
+			
 			uniform int type;
 
-			// color-shifting matrices
+			
 			static float3x3 color_matrices[4] = {
-				// normal vision - identity matrix
+				
 				float3x3(
 					1.0f,0.0f,0.0f, 
 					0.0f,1.0f,0.0f, 
 					0.0f,0.0f,1.0f),
-				// Protanopia - blindness to long wavelengths
+				
 				float3x3(
 					0.567f,0.433f,0.0f, 
 					0.558f,0.442f,0.0f, 
 					0.0f,0.242f,0.758f),
-				// Deuteranopia - blindness to medium wavelengths
+				
 				float3x3(
 					0.625f,0.375f,0.0f, 
 					0.7f,0.3f,0.0f,     
 					0.0f,0.3f,0.7f),
-				// Tritanopie - blindness to short wavelengths
+				
 				float3x3(
 					0.95f,0.05f,0.0f, 
 					0.0f,0.433f,0.567f, 
