@@ -11,18 +11,16 @@ public class OpcionesSonido : MonoBehaviour
 
     private void Start()
     {
-        
         float value;
-        audioMixer.GetFloat("MasterVolume", out value);
+        audioMixer.GetFloat("Master", out value);
         sliderMaster.value = value;
 
-        audioMixer.GetFloat("MusicVolume", out value);
+        audioMixer.GetFloat("Music", out value);
         sliderMusic.value = value;
 
-        audioMixer.GetFloat("SFXVolume", out value);
+        audioMixer.GetFloat("Fx", out value);
         sliderSFX.value = value;
 
-        
         sliderMaster.onValueChanged.AddListener(SetMasterVolume);
         sliderMusic.onValueChanged.AddListener(SetMusicVolume);
         sliderSFX.onValueChanged.AddListener(SetSFXVolume);
@@ -30,16 +28,16 @@ public class OpcionesSonido : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("Master", volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", volume);
+        audioMixer.SetFloat("Music", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFXVolume", volume);
+        audioMixer.SetFloat("Fx", volume);
     }
 }

@@ -9,7 +9,7 @@ public class MenuSeleccionPersonaje : MonoBehaviour
 {
     private int index;
     [SerializeField] private Image imagen;
-    [SerializeField] private TextMeshProUGUI nombre;
+    [SerializeField] private Text nombre;
 
     private GameManager gameManager;
 
@@ -63,6 +63,7 @@ public class MenuSeleccionPersonaje : MonoBehaviour
 
     public void IniciarJuego()
     {
+        gameManager.SeleccionarPersonaje(index);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

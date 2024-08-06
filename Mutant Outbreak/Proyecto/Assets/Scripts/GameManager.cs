@@ -1,20 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public List<Personajes> personajes;
 
-    private void Awake(){ 
-        if (GameManager.Instance == null){
-            GameManager.Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+    public List<Personaje> personajes;
+    private GameObject personajeSeleccionado;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else{
+        else
+        {
             Destroy(gameObject);
-        } 
-
+        }
     }
+
+    public void SeleccionarPersonaje(int index)
+    {
+        personajeSeleccionado = personajes[index].prefab;
+    }
+
+    public GameObject ObtenerPersonajeSeleccionado()
+    {
+        return personajeSeleccionado;
+    }
+}
+
+[System.Serializable]
+public class Personaje
+{
+    public string nombre;
+    public Sprite imagen;
+    public GameObject prefab;
 }

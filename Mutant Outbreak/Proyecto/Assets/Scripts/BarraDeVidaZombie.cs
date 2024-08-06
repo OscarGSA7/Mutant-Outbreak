@@ -17,7 +17,7 @@ public class BarraDeVidaZombie : MonoBehaviour
         }
     }
 
-    public void ActualizarVida(int vidaActual, int vidaMaxima)
+    public void ActualizarVida(float vidaActual, float vidaMaxima)
     {
         if (sliderVida != null)
         {

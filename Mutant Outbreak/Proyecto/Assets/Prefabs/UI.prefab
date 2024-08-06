@@ -3436,14 +3436,14 @@ RectTransform:
   m_GameObject: {fileID: 2621443005559381421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1679, y: 1.1679, z: 1.1679}
+  m_LocalScale: {x: 1.2814199, y: 1.2814199, z: 1.2814199}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5565299992322484041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450.36414, y: -35.701923}
+  m_AnchoredPosition: {x: -450.36414, y: 102}
   m_SizeDelta: {x: 495.2715, y: 41.4038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8260978534385237561
@@ -5495,7 +5495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdownVistaPrevia: {fileID: 462869224250244520}
-  videoPlayer: {fileID: 0}
+  videoPlayer: {fileID: 3746644120441586336}
   descripcionText: {fileID: 2392716984566978775}
   deuteranopiaVideo: {fileID: 32900000, guid: 0b1269ba41224534bb8e0a44b879f8d2, type: 3}
   protanopiaVideo: {fileID: 32900000, guid: 9db8321de07170e459df92e8218e2cd6, type: 3}
@@ -7312,8 +7312,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 427, y: -230.11}
-  m_SizeDelta: {x: 37.7, y: 41.7}
+  m_AnchoredPosition: {x: 429.5465, y: -92.46614}
+  m_SizeDelta: {x: 42.7935, y: 70.536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &818643995236044911
 CanvasRenderer:
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 8400000, guid: e9fd5d93a7397084f98346eb38d7eeda, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7362,7 +7362,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: e9fd5d93a7397084f98346eb38d7eeda, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -9075,7 +9075,7 @@ RectTransform:
   m_GameObject: {fileID: 6851687271281078804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7514, y: 1.7514, z: 1.7514}
+  m_LocalScale: {x: 2.0146356, y: 2.0146356, z: 2.0146356}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 905738982646276297}
@@ -9085,8 +9085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -584, y: -187}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -591.7195, y: -12}
+  m_SizeDelta: {x: 175.1695, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6477474508570579717
 CanvasRenderer:
@@ -11769,8 +11769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179.93668, y: -233.81013}
-  m_SizeDelta: {x: 386.8208, y: 292.8127}
+  m_AnchoredPosition: {x: -165.92953, y: -85}
+  m_SizeDelta: {x: 384.6403, y: 273.187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5856315360570342157
 CanvasRenderer:
@@ -11802,7 +11802,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 503f3e3320a038946b167ef2c483f1ae, type: 3}
-    m_FontSize: 20
+    m_FontSize: 19
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

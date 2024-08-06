@@ -2,10 +2,11 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Linq;
+using UnityEngine.UI;
 
 public class ControladorJuego : MonoBehaviour
 {
-    public TextMeshProUGUI textoRonda;
+    public Text textoRonda;
     public GameObject prefabZombie;
     public GameObject prefabBarraDeVidaZombie;
     public int zombiesPorRondaInicial = 4;
@@ -56,16 +57,15 @@ public class ControladorJuego : MonoBehaviour
             Vector2 posicion = posicionesZombies[randomIndex];
             GameObject zombie = Instantiate(prefabZombie, posicion, Quaternion.identity);
 
-            
             GameObject barra = Instantiate(prefabBarraDeVidaZombie, zombie.transform.position + new Vector3(0, 1, 0), Quaternion.identity, zombie.transform);
             BarraDeVidaZombie barraDeVida = barra.GetComponent<BarraDeVidaZombie>();
 
-            
             Enemy zombieScript = zombie.GetComponent<Enemy>();
             if (zombieScript != null)
             {
-                zombieScript.prefabBarraDeVidaZombi = prefabBarraDeVidaZombie; // Ahora puedes asignar el valor
+                zombieScript.prefabBarraDeVidaZombi = prefabBarraDeVidaZombie;
                 zombieScript.barraDeVida = barraDeVida;
+                zombieScript.AjustarVidaPorRonda(rondaActual); // Ajusta la vida del zombie según la ronda actual
             }
 
             yield return new WaitForSeconds(cooldownEntreZombies);

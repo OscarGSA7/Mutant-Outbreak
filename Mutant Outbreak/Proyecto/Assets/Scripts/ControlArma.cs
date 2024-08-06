@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ControlArma : MonoBehaviour
 {
+    public AudioSource audioSource; 
+    public AudioClip sonidoDisparo;
+    public AudioClip sondioRecarga;
     public GameObject balaPrefab; 
     public Transform puntoDisparo; 
     public float velocidadBala = 20f;
@@ -16,14 +19,22 @@ public class ControlArma : MonoBehaviour
     private Vector2 ultimaDireccion; 
     public CameraShake cameraShake;
 
+    public int maxAmmoInClip = 30; // Máxima munición en el cartucho
+    public int maxAmmoInReserve = 90; // Máxima munición en reserva
+
+    private int currentAmmoInClip; // Munición actual en el cartucho
+    private int currentAmmoInReserve; // Munición actual en reserva
+    public UIController uIController;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         ultimaDireccion = Vector2.left; 
         tiempoUltimoDisparo = -tiempoEntreDisparos; 
 
-        
-        
+        // Inicializar la munición
+        currentAmmoInClip = maxAmmoInClip;
+        currentAmmoInReserve = maxAmmoInReserve;
     }
 
     private void Update()
@@ -73,33 +84,111 @@ public class ControlArma : MonoBehaviour
         // Actualizar las animaciones de disparo
         animator.SetFloat("Horizontal", ultimaDireccion.x);
         animator.SetFloat("Vertical", ultimaDireccion.y);
+
+        // Recargar si es necesario
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Recargar();
+        }
     }
 
-    private void Disparar()
+    public void Disparar()
     {
-        animator.SetBool("isFiring", true);
-
-        GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
-        Bala balaScript = bala.GetComponent<Bala>();
-        if (balaScript != null)
+        if (audioSource != null && sonidoDisparo != null)
         {
-            balaScript.DireccionDisparo(ultimaDireccion);
-            balaScript.daño = 20; 
+            audioSource.PlayOneShot(sonidoDisparo);
         }
-
-        if (cameraShake != null)
+        if (currentAmmoInClip > 0)
         {
-            cameraShake.ShakeCamera(2f, 0.1f); 
+            animator.SetBool("isFiring", true);
+
+            GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
+            Bala balaScript = bala.GetComponent<Bala>();
+            if (balaScript != null)
+            {
+                balaScript.DireccionDisparo(ultimaDireccion);
+                balaScript.daño = 20; 
+            }
+
+            if (cameraShake != null)
+            {
+                cameraShake.ShakeCamera(2f, 0.1f); 
+            }
+
+            tiempoUltimoDisparo = Time.time; // Actualizar el tiempo del último disparo
+
+            currentAmmoInClip--; // Reducir munición en el cartucho
+            UpdateUI();
+
+            StartCoroutine(ResetFiring());
         }
+        else
+        {
+            Debug.Log("Munición en cartucho agotada. Recarga el arma.");
+        }
+    }
 
-        tiempoUltimoDisparo = Time.time; // Actualizar el tiempo del último disparo
+    public void Recargar()
+    {
+        if (audioSource != null && sondioRecarga != null)
+        {
+            audioSource.PlayOneShot(sondioRecarga);
+        }
+        if (currentAmmoInReserve > 0)
+        {
+            // Determinar la animación de recarga según la dirección
+            if (ultimaDireccion == Vector2.left)
+            {
+                animator.SetBool("isReloadingLeft", true);
+                animator.SetBool("isReloadingRight", false);
+            }
+            else if (ultimaDireccion == Vector2.right)
+            {
+                animator.SetBool("isReloadingRight", true);
+                animator.SetBool("isReloadingLeft", false);
+            }
 
-        StartCoroutine(ResetFiring());
+            StartCoroutine(RecargarCoroutine());
+        }
+        else
+        {
+            Debug.Log("Munición en reserva agotada.");
+        }
+    }
+
+
+    private IEnumerator RecargarCoroutine()
+    {
+        // Aquí se asume que la animación de recarga dura 1.5 segundos. Ajusta según sea necesario.
+        yield return new WaitForSeconds(1f);
+
+        int ammoNeeded = maxAmmoInClip - currentAmmoInClip;
+        int ammoToReload = Mathf.Min(ammoNeeded, currentAmmoInReserve);
+
+        currentAmmoInClip += ammoToReload;
+        currentAmmoInReserve -= ammoToReload;
+
+        animator.SetBool("isReloadingLeft", false);
+        animator.SetBool("isReloadingRight", false);
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        uIController.UpdateAmmoUI(currentAmmoInClip, currentAmmoInReserve);
     }
 
     private IEnumerator ResetFiring()
     {
         yield return new WaitForSeconds(0.01f);
         animator.SetBool("isFiring", false);
+    }
+    public void RefillAmmo()
+    {
+        currentAmmoInClip = maxAmmoInClip;
+        currentAmmoInReserve = maxAmmoInReserve;
+        Debug.Log("Munición repuesta: " + currentAmmoInClip + " / " + currentAmmoInReserve);
+        UpdateUI();
     }
 }

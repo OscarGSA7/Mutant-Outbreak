@@ -3,35 +3,37 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip SondioGolpe;
     public float velocidadMovimiento = 2.0f; 
-    public int daño = 20; 
-    public int vidaMaxima = 100;
-    private int vidaActual;
+    public float daño = 20; 
+    public float vidaMaxima = 100;
+    private float vidaActual;
     public GameObject prefabBarraDeVidaZombi;
     public BarraDeVidaZombie barraDeVida { get; set; }
     public bool isDead = false;
     private Transform jugador; 
     private Animator animator; 
     private Vector2 direccion; 
-    private bool puedeHacerDaño = true; 
+    private bool puedeHacerDaño = true;
+    private ControladorDinero controladorDinero; 
 
     private void Start()
     {
         animator = GetComponent<Animator>(); 
+        controladorDinero = FindObjectOfType<ControladorDinero>();
         jugador = GameObject.FindWithTag("Jugador").transform; 
         vidaActual = vidaMaxima;
         
-        
+        // Instanciar y asignar la barra de vida
         GameObject barra = Instantiate(prefabBarraDeVidaZombi, transform.position + new Vector3(0, 1, 0), Quaternion.identity, transform);
         barraDeVida = barra.GetComponent<BarraDeVidaZombie>();
-
-        
         barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
     }
 
     private void Update()
     {
-        if (jugador != null)
+        if (jugador != null && !isDead)
         {
             direccion = (jugador.position - transform.position).normalized;
 
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
                 Jugador jugadorScript = other.GetComponent<Jugador>();
                 if (jugadorScript != null)
                 {
-                    jugadorScript.TomarDaño(daño);
+                    jugadorScript.TomarDaño((int)daño);
                     StartCoroutine(CooldownDaño());
                 }
             }
@@ -64,7 +66,7 @@ public class Enemy : MonoBehaviour
             Bala balaScript = other.GetComponent<Bala>();
             if (balaScript != null)
             {
-                RecibirDaño(balaScript.daño);
+                RecibirDaño((int)balaScript.daño);
                 Destroy(other.gameObject); 
             }
         }
@@ -79,34 +81,47 @@ public class Enemy : MonoBehaviour
 
     public void RecibirDaño(int daño)
     {
+        if (audioSource != null && SondioGolpe != null)
+        {
+            audioSource.PlayOneShot(SondioGolpe);
+        }
         vidaActual -= daño;
-
         barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
 
-        
-        
         if (daño > 0 && !isDead)
-    {
-        animator.SetBool("Daño", true);
-        Invoke("DesactivarDaño", 0.3f);
-    }
+        {
+            animator.SetBool("Daño", true);
+            Invoke("DesactivarDaño", 0.3f);
+        }
 
-        if (vidaActual <= 0)
+        if (vidaActual <= 0 && !isDead)
         {
             Muerte();
         }
     }
+
     private void DesactivarDaño()
     {
         animator.SetBool("Daño", false);
     }
 
+    public void AjustarVidaPorRonda(int rondaActual)
+    {
+        vidaMaxima += 0.5f * rondaActual;
+        vidaActual = vidaMaxima;
+        if (barraDeVida != null)
+        {
+            barraDeVida.ActualizarVida(vidaMaxima, vidaActual);
+            
+        }
+    }
+
     private void Muerte()
     {
-
         velocidadMovimiento = 0;
         isDead = true;
         animator.SetTrigger("isDead");
+        controladorDinero.AgregarDinero(100);
         Destroy(gameObject, 0.6f);
     }
 }

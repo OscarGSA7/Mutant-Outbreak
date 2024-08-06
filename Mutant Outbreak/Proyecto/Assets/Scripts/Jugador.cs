@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Jugador : MonoBehaviour
 {
+    public AudioSource audioSource; 
+    public AudioClip hit;
     public int vida = 100;
     public int vidaMaxima = 100;
     public int cantidadRegeneracion = 10;
@@ -22,8 +24,11 @@ public class Jugador : MonoBehaviour
 
     public void TomarDaño(int daño)
     {
+            if (audioSource != null && hit != null)
+        {
+                audioSource.PlayOneShot(hit);
+        }
         vida -= daño;
-        Debug.Log("Jugador ha tomado daño. Vida restante: " + vida);
         barraDeVida.CambiarVidaActual(vida);
 
         if (vida <= 0)
@@ -33,13 +38,12 @@ public class Jugador : MonoBehaviour
 
         if (cameraShake != null)
         {
-            cameraShake.ShakeCamera(2f, 0.2f); 
+            cameraShake.ShakeCamera(2f, 0.2f);
         }
     }
 
     private void Muerte()
     {
-        Debug.Log("Jugador ha muerto.");
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -59,7 +63,6 @@ public class Jugador : MonoBehaviour
                     vida = vidaMaxima;
                 }
 
-                Debug.Log("Jugador ha regenerado vida. Vida actual: " + vida);
                 barraDeVida.CambiarVidaActual(vida);
             }
         }

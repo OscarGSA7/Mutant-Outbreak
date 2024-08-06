@@ -23,6 +23,7 @@ public class OpcionesPantalla : MonoBehaviour
 
     private bool panelActivo = false; // Variable para verificar si el panel está activo
 
+    [System.Obsolete]
     private void Start()
     {
         resoluciones = Screen.resolutions;
@@ -52,6 +53,7 @@ public class OpcionesPantalla : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     private void InicializarDropdowns()
     {
         resolucionDropdown.ClearOptions();
@@ -100,6 +102,7 @@ public class OpcionesPantalla : MonoBehaviour
         tasaActualizacionInicialIndex = tasaActualizacionDropdown.value;
     }
 
+    [System.Obsolete]
     public void AplicarCambios()
     {
         Resolution resolucionSeleccionada = resoluciones[resolucionDropdown.value];
@@ -109,6 +112,7 @@ public class OpcionesPantalla : MonoBehaviour
         Screen.SetResolution(resolucionSeleccionada.width, resolucionSeleccionada.height, modoVisualizacionSeleccionado, tasaActualizacionSeleccionada);
     }
 
+    [System.Obsolete]
     public void RevertirCambios()
     {
         resolucionDropdown.value = resolucionInicialIndex;
