@@ -89,7 +89,7 @@ public class Pausa : MonoBehaviour
     public void Quit()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("menuinicial");
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnEnable()

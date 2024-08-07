@@ -7,12 +7,12 @@ public class GameOver : MonoBehaviour
 {
      public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Game");
     }
 
     public void Regresar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        SceneManager.LoadScene("MainMenu");
     }
 
         
