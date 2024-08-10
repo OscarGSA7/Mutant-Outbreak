@@ -18,11 +18,12 @@ public class ControlArma : MonoBehaviour
     private Vector2 direccion;
     private Vector2 ultimaDireccion; 
     public CameraShake cameraShake;
+    public Pausa pausa;
 
     public int maxAmmoInClip = 30; // Máxima munición en el cartucho
-    public int maxAmmoInReserve = 90; // Máxima munición en reserva
+    public int maxAmmoInReserve = 90; 
 
-    private int currentAmmoInClip; // Munición actual en el cartucho
+    public int currentAmmoInClip; // Munición actual en el cartucho
     private int currentAmmoInReserve; // Munición actual en reserva
     public UIController uIController;
 
@@ -94,11 +95,11 @@ public class ControlArma : MonoBehaviour
 
     public void Disparar()
     {
-        if (audioSource != null && sonidoDisparo != null)
+        if (audioSource != null && sonidoDisparo != null && pausa.juegoPausado == false)
         {
             audioSource.PlayOneShot(sonidoDisparo);
         }
-        if (currentAmmoInClip > 0)
+        if (currentAmmoInClip > 0 && pausa.juegoPausado == false)
         {
             animator.SetBool("isFiring", true);
 
@@ -130,11 +131,11 @@ public class ControlArma : MonoBehaviour
 
     public void Recargar()
     {
-        if (audioSource != null && sondioRecarga != null)
+        if (audioSource != null && sondioRecarga != null && pausa.juegoPausado == false && currentAmmoInClip < maxAmmoInClip)
         {
             audioSource.PlayOneShot(sondioRecarga);
         }
-        if (currentAmmoInReserve > 0)
+        if (currentAmmoInReserve > 0 && pausa.juegoPausado == false && currentAmmoInClip < maxAmmoInClip)
         {
             // Determinar la animación de recarga según la dirección
             if (ultimaDireccion == Vector2.left)

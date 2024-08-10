@@ -52,7 +52,7 @@ public class AmmoRefill : MonoBehaviour
             Debug.Log("Jugador entró en el rango de interacción");
             playerInRange = true;
             interactionText.gameObject.SetActive(true);
-            interactionText.text = "Presiona 'F' para reponer munición (costo: " + costToRefill + " puntos)";
+            interactionText.text = "Presiona 'F' para munición (costo: " + costToRefill + " puntos)";
         }
     }
 

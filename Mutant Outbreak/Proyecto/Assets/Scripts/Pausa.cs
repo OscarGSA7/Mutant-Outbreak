@@ -16,19 +16,19 @@ public class Pausa : MonoBehaviour
     [SerializeField] private Button tabControles; 
     [SerializeField] private Button tabAccesibilidad; 
 
-    private bool isPaused = false;
-    private bool juegoPausado = false;
+    public bool isPaused = false;
+    public bool juegoPausado = false;
 
     private void Start()
     {
-        // Asegúrate de que el panel de opciones y subpaneles estén desactivados al inicio
+        
         panelOpciones.SetActive(false);
-        panelPantalla.SetActive(true); // Panel de Pantalla activo por defecto
+        panelPantalla.SetActive(true); 
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
         panelAccesibilidad.SetActive(false);
 
-        // Añadir listener para los botones de opciones y tabs
+        
         botonOpciones.onClick.AddListener(MostrarOpciones);
         tabPantalla.onClick.AddListener(() => MostrarPanel(panelPantalla));
         tabSonido.onClick.AddListener(() => MostrarPanel(panelSonido));
@@ -36,7 +36,7 @@ public class Pausa : MonoBehaviour
         tabAccesibilidad.onClick.AddListener(() => MostrarPanel(panelAccesibilidad));
     }
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -75,7 +75,7 @@ public class Pausa : MonoBehaviour
             Time.timeScale = 1f;
             botonPausa.SetActive(true);
             menuPausa.SetActive(false);
-            panelOpciones.SetActive(false); // Asegurarse de que el panel de opciones también esté oculto
+            panelOpciones.SetActive(false); 
             isPaused = false;
         }
     }

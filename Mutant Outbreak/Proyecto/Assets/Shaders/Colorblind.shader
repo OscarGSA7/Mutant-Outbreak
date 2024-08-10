@@ -53,7 +53,7 @@ Shader "Hidden/Wilberforce/Colorblind"
 				float2 uv : TEXCOORD0;
 			};
 
-			// vertex shader
+			
 			v2f vert(appdata_img v)
 			{
 				v2f o;
@@ -62,14 +62,14 @@ Shader "Hidden/Wilberforce/Colorblind"
 				return o;
 			}
 
-			// fragment shader
+			
 			half4 frag(v2f i) : SV_Target
 			{	
-				// read the color from input texture
+				
 				half4 color = tex2D(_MainTex, i.uv);
-				// matrix multiplication with color-shifting matrix - index specified by 'type' variable
+				
 				float3 x = mul(color.rgb, color_matrices[type]);
-				// cast it to proper type before returning
+				
 				return half4(x,1.0f);
 			}
 

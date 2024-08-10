@@ -1,9 +1,10 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ControladorEstadisticas : MonoBehaviour
 {
-    public TextMeshProUGUI estadisticasTexto; 
+    public Text estadisticasTexto; 
     private bool estadisticasVisibles = false; 
     private float tiempoJugado = 0f; 
     private int zombiesEliminados = 0; 
