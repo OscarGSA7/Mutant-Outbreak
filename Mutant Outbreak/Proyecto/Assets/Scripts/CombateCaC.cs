@@ -11,6 +11,23 @@ public class CombateCaC : MonoBehaviour
     [SerializeField] private float tiempoEntreAtaques;
     [SerializeField] private float tiempoSiguienteAtaque;
     private Animator animator;
+    private Controles controles;
+
+        private void Awake()
+    {
+        controles = new Controles();
+        controles.Base.Melee.performed += ctx => Golpe();
+    }
+
+    private void OnEnable()
+    {
+        controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controles.Disable();
+    }
 
     private void Start(){
         animator = GetComponent<Animator>(); 

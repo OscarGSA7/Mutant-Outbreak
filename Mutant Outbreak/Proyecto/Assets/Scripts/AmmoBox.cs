@@ -6,9 +6,26 @@ public class AmmoRefill : MonoBehaviour
     public int costToRefill = 1000;
     public Text interactionText;
     public GameObject player; // Asigna el jugador desde el editor
-    public ControladorDinero controladorDinero; // Asigna el ControladorDinero desde el editor
+    public ControladorDinero controladorDinero; // Asigna el ControlArma desde el editor
     public ControlArma controlArma; // Asigna el ControlArma desde el editor
     private bool playerInRange = false;
+    private Controles controles;
+
+    private void Awake()
+    {
+        controles = new Controles();
+        controles.Base.Interactuar.performed += ctx => RefillAmmo();
+    }
+
+    private void OnEnable()
+    {
+        controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controles.Disable();
+    }
 
     private void Start()
     {
@@ -19,29 +36,12 @@ public class AmmoRefill : MonoBehaviour
     {
         if (playerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("F presionado");
-                if (controlArma != null && controladorDinero != null)
-                {
-                    Debug.Log("ControlArma y ControladorDinero no son nulos");
-                    if (controladorDinero.cantidad >= costToRefill)
-                    {
-                        Debug.Log("Suficiente dinero, reponiendo munición");
-                        controladorDinero.QuitarDinero(costToRefill);
-                        controlArma.RefillAmmo();
-                        interactionText.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Debug.Log("No tienes suficientes puntos.");
-                    }
-                }
-                else
-                {
-                    Debug.Log("ControlArma o ControladorDinero son nulos");
-                }
-            }
+            interactionText.gameObject.SetActive(true);
+            interactionText.text = "Presiona 'F' para munición (costo: " + costToRefill + " puntos)";
+        }
+        else
+        {
+            interactionText.gameObject.SetActive(false);
         }
     }
 
@@ -51,8 +51,6 @@ public class AmmoRefill : MonoBehaviour
         {
             Debug.Log("Jugador entró en el rango de interacción");
             playerInRange = true;
-            interactionText.gameObject.SetActive(true);
-            interactionText.text = "Presiona 'F' para munición (costo: " + costToRefill + " puntos)";
         }
     }
 
@@ -62,7 +60,31 @@ public class AmmoRefill : MonoBehaviour
         {
             Debug.Log("Jugador salió del rango de interacción");
             playerInRange = false;
-            interactionText.gameObject.SetActive(false);
+        }
+    }
+
+    private void RefillAmmo()
+    {
+        if (!playerInRange) return;
+
+        if (controlArma != null && controladorDinero != null)
+        {
+            Debug.Log("ControlArma y ControladorDinero no son nulos");
+            if (controladorDinero.cantidad >= costToRefill)
+            {
+                Debug.Log("Suficiente dinero, reponiendo munición");
+                controladorDinero.QuitarDinero(costToRefill);
+                controlArma.RefillAmmo();
+                interactionText.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("No tienes suficientes puntos.");
+            }
+        }
+        else
+        {
+            Debug.Log("ControlArma o ControladorDinero son nulos");
         }
     }
 }

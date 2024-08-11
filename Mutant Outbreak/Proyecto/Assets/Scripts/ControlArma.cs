@@ -26,6 +26,22 @@ public class ControlArma : MonoBehaviour
     public int currentAmmoInClip; // Munición actual en el cartucho
     private int currentAmmoInReserve; // Munición actual en reserva
     public UIController uIController;
+    private Controles controles;
+
+    private void Awake(){
+        controles = new Controles();
+        controles.Base.Disparar.performed += ctx => Disparar();
+        controles.Base.Recargar.performed += ctx => Recargar();
+    }
+    private void OnEnable()
+    {
+        controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controles.Disable();
+    }
 
     private void Start()
     {

@@ -7,12 +7,29 @@ public class DoorController : MonoBehaviour
     public AudioClip Puerta;
     public int costToOpen = 3000;
     public Text interactionText;
-    public GameObject player;  // Asigna el jugador desde el editor
+    public GameObject player;  
     public float interactionDistance = 2.0f;
     private bool isOpen = false;
 
     private Collider2D doorCollider;
     private Animator animator;
+    private Controles controles;
+
+    private void Awake()
+    {
+        controles = new Controles();
+        controles.Base.Interactuar.performed += ctx => TryOpenDoor();
+    }
+
+    private void OnEnable()
+    {
+        controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controles.Disable();
+    }
 
     private void Start()
     {
@@ -23,25 +40,12 @@ public class DoorController : MonoBehaviour
 
     private void Update()
     {
+        if (isOpen) return; // Si la puerta ya está abierta, no hacer nada
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer <= interactionDistance && !isOpen)
+        if (distanceToPlayer <= interactionDistance)
         {
             interactionText.gameObject.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                ControladorDinero controladorDinero = player.GetComponent<ControladorDinero>();
-                if (controladorDinero != null)
-                {
-                    if (controladorDinero.QuitarDinero(costToOpen))
-                    {
-                        OpenDoor();
-                    }
-                    else
-                    {
-                        Debug.Log("No tienes suficientes puntos para abrir la puerta.");
-                    }
-                }
-            }
         }
         else
         {
@@ -49,19 +53,25 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void TryOpenDoor()
     {
-        if (other.gameObject == player)
-        {
-            interactionText.gameObject.SetActive(true);
-        }
-    }
+        if (isOpen) return; // Si la puerta ya está abierta, no hacer nada
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject == player)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer <= interactionDistance)
         {
-            interactionText.gameObject.SetActive(false);
+            ControladorDinero controladorDinero = player.GetComponent<ControladorDinero>();
+            if (controladorDinero != null)
+            {
+                if (controladorDinero.QuitarDinero(costToOpen))
+                {
+                    OpenDoor();
+                }
+                else
+                {
+                    Debug.Log("No tienes suficientes puntos para abrir la puerta.");
+                }
+            }
         }
     }
 
@@ -71,6 +81,7 @@ public class DoorController : MonoBehaviour
         {
             audioSource.PlayOneShot(Puerta);
         }
+
         isOpen = true;
         interactionText.gameObject.SetActive(false);
         doorCollider.enabled = false;

@@ -10,22 +10,44 @@ public class Movimiento : MonoBehaviour
     private Animator animator;
     public BoostVelocidad boostVelocidad;
 
+    private Controles controles;
+
+    private void Awake()
+    {
+        controles = new Controles();
+        controles.Base.Habilidad.performed += ctx => ActivarHabilidad();
+        controles.Base.Habilidad.canceled += ctx => DesactivarHabilidad();
+    }
+
+    private void OnEnable()
+    {
+        controles.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controles.Disable();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>(); 
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void ActivarHabilidad()
+    {
+        velocidadMovimiento = 0.5f;
+    }
+
+    private void DesactivarHabilidad()
+    {
+        velocidadMovimiento = 6.0f;
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
-        {
-            velocidadMovimiento = 0.5f;
-        }
-        else
-        {
-            velocidadMovimiento = 6.0f; 
-        }
+        direccion = controles.Base.Mover.ReadValue<Vector2>();
 
         movimientoX = Input.GetAxisRaw("Horizontal");
         movimientoY = Input.GetAxisRaw("Vertical");
@@ -42,8 +64,9 @@ public class Movimiento : MonoBehaviour
         }
 
         direccion = new Vector2(movimientoX, movimientoY).normalized;
-        
-        if(boostVelocidad.yaUsado == true){
+
+        if (boostVelocidad.yaUsado == true)
+        {
             velocidadMovimiento = 8.0f;
         }
     }
@@ -51,7 +74,7 @@ public class Movimiento : MonoBehaviour
     private void FixedUpdate()
     {
         // Mover el Rigidbody2D en la dirección deseada
-        rb2d.MovePosition(rb2d.position + direccion * velocidadMovimiento * Time.fixedDeltaTime); 
+        rb2d.MovePosition(rb2d.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
     }
 
     public void IncrementarVelocidad(float cantidad)
