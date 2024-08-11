@@ -1,0 +1,89 @@
+{
+    "name": "Controles",
+    "maps": [
+        {
+            "name": "Base",
+            "id": "ac55a9e9-07d8-449e-8a8c-db98b1c3878e",
+            "actions": [
+                {
+                    "name": "Mover",
+                    "type": "PassThrough",
+                    "id": "98c0ae0c-88a0-434b-855f-a6a5d73727a7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1c51faa-855e-47b3-8ca2-151ca8d10581",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "HoldButtons",
+                    "id": "12a979bc-0c65-4271-911b-819f907f8a4c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4c663e29-0789-496d-9f1a-4571bd4a4a2f",
+                    "path": "<Touchscreen>/pressure",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "58ce69d5-8a0e-4661-a0a3-c28d375eb2b8",
+                    "path": "<Touchscreen>/pressure",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bde44eeb-f828-4fb8-9bd0-a05d08c22514",
+                    "path": "<Touchscreen>/pressure",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5a689430-9e3b-43c4-bb6e-46d10dc11c12",
+                    "path": "<Touchscreen>/pressure",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

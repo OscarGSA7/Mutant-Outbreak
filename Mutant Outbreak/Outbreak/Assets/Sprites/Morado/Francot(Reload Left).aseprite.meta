@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: 21fc9e9131c55b1499afc6561d1392b8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Francot(Reload Left)_Frame_0
+    originalName: 
+    pivot: {x: 0.52386004, y: -2.0537634}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1030
+      width: 943
+      height: 279
+    spriteID: ed4011d278e2e4d4db2a1bd31b8e7348
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1030}
+  - name: Francot(Reload Left)_Frame_1
+    originalName: 
+    pivot: {x: 0.52497345, y: -1.5449102}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 941
+      height: 334
+    spriteID: 0a44f3c43c4942c499e126017ea38380
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Francot(Reload Left)_Frame_2
+    originalName: 
+    pivot: {x: 0.52497345, y: -1.5449102}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 346
+      width: 941
+      height: 334
+    spriteID: 4cfdf2a011ade4b4cbb6b96d60bea6ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 346}
+  - name: Francot(Reload Left)_Frame_3
+    originalName: 
+    pivot: {x: 0.52497345, y: -1.5449102}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 688
+      width: 941
+      height: 334
+    spriteID: b47e3de578b716744827bd42bc4db045
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 688}
+  - name: Francot(Reload Left)_Frame_4
+    originalName: 
+    pivot: {x: 0.52386004, y: -2.0537634}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1317
+      width: 943
+      height: 279
+    spriteID: 89b8d52451fa6a5448fd2f59126c15d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1317}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1708254510
+    name: Francot(Reload Left)
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Francot(Reload Left)_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 573
+        width: 943
+        height: 279
+      spriteId: ed4011d278e2e4d4db2a1bd31b8e7348
+    - name: Francot(Reload Left)_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 516
+        width: 941
+        height: 334
+      spriteId: 0a44f3c43c4942c499e126017ea38380
+    - name: Francot(Reload Left)_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 516
+        width: 941
+        height: 334
+      spriteId: 4cfdf2a011ade4b4cbb6b96d60bea6ca
+    - name: Francot(Reload Left)_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 516
+        width: 941
+        height: 334
+      spriteId: b47e3de578b716744827bd42bc4db045
+    - name: Francot(Reload Left)_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 573
+        width: 943
+        height: 279
+      spriteId: 89b8d52451fa6a5448fd2f59126c15d6
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 1024, y: 1024}
