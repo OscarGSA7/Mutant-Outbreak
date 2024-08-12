@@ -5,9 +5,9 @@ public class AmmoRefill : MonoBehaviour
 {
     public int costToRefill = 1000;
     public Text interactionText;
-    public GameObject player; // Asigna el jugador desde el editor
-    public ControladorDinero controladorDinero; // Asigna el ControlArma desde el editor
-    public ControlArma controlArma; // Asigna el ControlArma desde el editor
+    public GameObject player; 
+    public ControladorDinero controladorDinero; 
+    public ControlArma controlArma; 
     private bool playerInRange = false;
     private Controles controles;
 
@@ -49,7 +49,7 @@ public class AmmoRefill : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            Debug.Log("Jugador entró en el rango de interacción");
+            
             playerInRange = true;
         }
     }
@@ -58,7 +58,7 @@ public class AmmoRefill : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            Debug.Log("Jugador salió del rango de interacción");
+            
             playerInRange = false;
         }
     }
@@ -69,10 +69,10 @@ public class AmmoRefill : MonoBehaviour
 
         if (controlArma != null && controladorDinero != null)
         {
-            Debug.Log("ControlArma y ControladorDinero no son nulos");
+            
             if (controladorDinero.cantidad >= costToRefill)
             {
-                Debug.Log("Suficiente dinero, reponiendo munición");
+                
                 controladorDinero.QuitarDinero(costToRefill);
                 controlArma.RefillAmmo();
                 interactionText.gameObject.SetActive(false);
@@ -84,7 +84,7 @@ public class AmmoRefill : MonoBehaviour
         }
         else
         {
-            Debug.Log("ControlArma o ControladorDinero son nulos");
+            
         }
     }
 }

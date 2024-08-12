@@ -65,7 +65,7 @@ public class ControladorJuego : MonoBehaviour
             {
                 zombieScript.prefabBarraDeVidaZombi = prefabBarraDeVidaZombie;
                 zombieScript.barraDeVida = barraDeVida;
-                zombieScript.AjustarVidaPorRonda(rondaActual); // Ajusta la vida del zombie según la ronda actual
+                zombieScript.AjustarVidaPorRonda(rondaActual); 
             }
 
             yield return new WaitForSeconds(cooldownEntreZombies);

@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public int daño = 50; 
+    public float daño = 20; 
     public float velocidadBala = 10.0f; 
     private Vector2 direccion;
     private ControladorDinero controladorDinero;
+    private Enemy enemigo;
     public void Start(){
+        
         controladorDinero = FindObjectOfType<ControladorDinero>();
     }
     public void DireccionDisparo(Vector2 direccion)
@@ -30,9 +32,10 @@ private void OnTriggerEnter2D(Collider2D other)
         Enemy enemigoScript = other.GetComponent<Enemy>();
         if (enemigoScript != null)
         {
-            
-            enemigoScript.RecibirDaño(daño);
-            controladorDinero.AgregarDinero(10); // Sumar 10 puntos por impacto
+            Debug.Log("Bala impactó al zombie. Aplicando daño: " + daño);
+            enemigoScript.RecibirDaño((int)daño);
+            Destroy(gameObject); 
+            controladorDinero.AgregarDinero(10); 
         }
         else
         {

@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour
     private Animator animator; 
     private Vector2 direccion; 
     private bool puedeHacerDaño = true;
-    private ControladorDinero controladorDinero; 
+    private ControladorDinero controladorDinero;
+    private Bala bala;
 
     private void Start()
     {
@@ -86,6 +87,8 @@ public class Enemy : MonoBehaviour
             audioSource.PlayOneShot(SondioGolpe);
         }
         vidaActual -= daño;
+        Debug.Log("Recibiendo daño: " + daño);
+        Debug.Log("Vida es:"+ vidaActual);
         barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
 
         if (daño > 0 && !isDead)
@@ -107,13 +110,18 @@ public class Enemy : MonoBehaviour
 
     public void AjustarVidaPorRonda(int rondaActual)
     {
-        vidaMaxima += 0.5f * rondaActual;
+        vidaMaxima = 100 + (10 * rondaActual);
         vidaActual = vidaMaxima;
+        
+        
+        daño = 20 + (5 * rondaActual);
+
+
         if (barraDeVida != null)
         {
-            barraDeVida.ActualizarVida(vidaMaxima, vidaActual);
-            
+            barraDeVida.ActualizarVida(vidaActual, vidaMaxima);
         }
+        
     }
 
     private void Muerte()

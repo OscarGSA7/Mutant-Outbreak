@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class BoostVelocidad : MonoBehaviour
 {
-    public int costo = 3000; // Costo para usar el boost
+    public int costo = 3000; 
     public Text textoInteraccion;
-    public GameObject jugador; // Asigna el jugador desde el editor
-    public ControladorDinero controladorDinero; // Asigna el ControladorDinero desde el editor
-    public Movimiento movimientoJugador; // Asigna el componente Movimiento desde el editor
+    public GameObject jugador; 
+    public ControladorDinero controladorDinero; 
+    public Movimiento movimientoJugador; 
     private Controles controles;
 
     private bool jugadorEnRango = false;
@@ -73,7 +73,7 @@ public class BoostVelocidad : MonoBehaviour
             if (controladorDinero.cantidad >= costo)
             {
                 controladorDinero.QuitarDinero(costo);
-                movimientoJugador.IncrementarVelocidad(3.0f); // Incrementa la velocidad en 3 puntos
+                movimientoJugador.IncrementarVelocidad(3.0f); 
                 yaUsado = true;
                 textoInteraccion.gameObject.SetActive(false);
                 Debug.Log("Velocidad aumentada en 3 puntos.");

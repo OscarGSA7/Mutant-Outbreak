@@ -5,8 +5,8 @@ public class HealthBoost : MonoBehaviour
 {
     public int costToBoost = 5000;
     public Text interactionText;
-    public GameObject player; // Asigna el jugador desde el editor
-    public ControladorDinero controladorDinero; // Asigna el ControladorDinero desde el editor
+    public GameObject player; 
+    public ControladorDinero controladorDinero; 
 
     private bool playerInRange = false;
     private bool hasBeenUsed = false;
@@ -53,7 +53,7 @@ public class HealthBoost : MonoBehaviour
         {
             playerInRange = true;
             interactionText.gameObject.SetActive(true);
-            Debug.Log("Jugador en rango.");
+            
         }
     }
 
@@ -63,7 +63,7 @@ public class HealthBoost : MonoBehaviour
         {
             playerInRange = false;
             interactionText.gameObject.SetActive(false);
-            Debug.Log("Jugador fuera de rango.");
+            
         }
     }
 

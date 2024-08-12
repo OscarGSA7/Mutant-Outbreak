@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; // Asegúrate de incluir esta línea
+using UnityEngine.EventSystems;
+using System;
 
 public class Pausa : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
-    [SerializeField] private GameObject panelOpciones; 
-    [SerializeField] private GameObject panelPantalla; 
-    [SerializeField] private GameObject panelSonido; 
-    [SerializeField] private GameObject panelControles; 
-    [SerializeField] private GameObject panelAccesibilidad; 
-    [SerializeField] private Button botonOpciones; 
-    [SerializeField] private Button tabPantalla; 
-    [SerializeField] private Button tabSonido; 
-    [SerializeField] private Button tabControles; 
-    [SerializeField] private Button tabAccesibilidad; 
+    [SerializeField] private GameObject panelOpciones;
+    [SerializeField] private GameObject panelPantalla;
+    [SerializeField] private GameObject panelSonido;
+    [SerializeField] private GameObject panelControles;
+    [SerializeField] private GameObject panelAccesibilidad;
+    [SerializeField] private Button botonOpciones;
+    [SerializeField] private Button tabPantalla;
+    [SerializeField] private Button tabSonido;
+    [SerializeField] private Button tabControles;
+    [SerializeField] private Button tabAccesibilidad;
+    [SerializeField] private Button botonVolver; 
 
     private Controles controles;
     private bool isPaused = false;
@@ -26,6 +28,8 @@ public class Pausa : MonoBehaviour
     {
         controles = new Controles();
         controles.General.Pausa.performed += ctx => PausarOContinuar();
+        controles.General.Atras.performed += ctx => RegresarMenuPausa();
+        controles.General.Avanzar.performed += ctx => RealizarAccion();
     }
 
     private void OnEnable()
@@ -33,7 +37,7 @@ public class Pausa : MonoBehaviour
         controles.Enable();
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
-        panelOpciones.SetActive(false); 
+        panelOpciones.SetActive(false);
         isPaused = false;
     }
 
@@ -45,13 +49,9 @@ public class Pausa : MonoBehaviour
 
     private void Start()
     {
-        panelOpciones.SetActive(false);
-        panelPantalla.SetActive(true); 
-        panelSonido.SetActive(false);
-        panelControles.SetActive(false);
-        panelAccesibilidad.SetActive(false);
-
         botonOpciones.onClick.AddListener(MostrarOpciones);
+        botonVolver.onClick.AddListener(Resume); 
+
         tabPantalla.onClick.AddListener(() => MostrarPanel(panelPantalla));
         tabSonido.onClick.AddListener(() => MostrarPanel(panelSonido));
         tabControles.onClick.AddListener(() => MostrarPanel(panelControles));
@@ -60,21 +60,26 @@ public class Pausa : MonoBehaviour
 
     private void PausarOContinuar()
     {
+        Debug.Log("PausarOContinuar() llamado. Juego pausado: " + juegoPausado);
+
         if (panelOpciones.activeSelf)
         {
+            Debug.Log("Regresando al menú de pausa desde las opciones.");
             RegresarMenuPausa();
         }
         else if (juegoPausado)
         {
+            Debug.Log("Reanudando el juego.");
             Resume();
         }
         else
         {
-            pausa();
+            Debug.Log("Pausando el juego.");
+            Pausar();
         }
     }
 
-    private void pausa()
+    private void Pausar()
     {
         juegoPausado = true;
         if (!isPaused)
@@ -83,10 +88,11 @@ public class Pausa : MonoBehaviour
             botonPausa.SetActive(false);
             menuPausa.SetActive(true);
             isPaused = true;
+            EventSystem.current.SetSelectedGameObject(botonOpciones.gameObject);
         }
     }
 
-    private void Resume()
+    public void Resume()
     {
         juegoPausado = false;
         if (isPaused)
@@ -94,7 +100,7 @@ public class Pausa : MonoBehaviour
             Time.timeScale = 1f;
             botonPausa.SetActive(true);
             menuPausa.SetActive(false);
-            panelOpciones.SetActive(false); 
+            panelOpciones.SetActive(false);
             isPaused = false;
         }
     }
@@ -115,12 +121,21 @@ public class Pausa : MonoBehaviour
     {
         menuPausa.SetActive(false);
         panelOpciones.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(tabPantalla.gameObject);
     }
 
     private void RegresarMenuPausa()
     {
-        panelOpciones.SetActive(false);
-        menuPausa.SetActive(true);
+        if (panelOpciones.activeSelf)
+        {
+            panelOpciones.SetActive(false);
+            menuPausa.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(botonOpciones.gameObject);
+        }
+        else
+        {
+            Resume();
+        }
     }
 
     private void MostrarPanel(GameObject panel)
@@ -129,17 +144,66 @@ public class Pausa : MonoBehaviour
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
         panelAccesibilidad.SetActive(false);
-
         panel.SetActive(true);
+
+        SelectFirstInteractable(panel);
     }
 
-    public void HideOpcionesMenu()
+private void SelectFirstInteractable(GameObject panel)
+{
+    Selectable firstInteractable = panel.GetComponentInChildren<Selectable>();
+
+    if (firstInteractable != null)
     {
-        if (panelOpciones != null && menuPausa != null)
+        EventSystem.current.SetSelectedGameObject(firstInteractable.gameObject);
+
+        Dropdown dropdown = firstInteractable.GetComponent<Dropdown>();
+        if (dropdown != null)
         {
-            panelOpciones.SetActive(false); // Oculta el menú de opciones
-            menuPausa.SetActive(false); // Oculta el menú de pausa
-            Resume(); // Resuma el juego
+            Debug.Log("Dropdown encontrado: " + dropdown.name);
+
+            if (dropdown.options != null && dropdown.options.Count > 0)
+            {
+                Debug.Log("Dropdown tiene opciones disponibles.");
+
+            }
+            else
+            {
+                Debug.LogError("Dropdown no tiene opciones disponibles.");
+            }
+        }
+        else
+        {
+            Debug.LogError("El objeto interactivo no es un Dropdown.");
+        }
+    }
+    else
+    {
+        Debug.LogError("No se encontró un objeto interactivo dentro del panel.");
+    }
+}
+
+
+
+
+
+    private void RealizarAccion()
+    {
+        GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
+        if (currentSelected != null)
+        {
+            Button button = currentSelected.GetComponent<Button>();
+            if (button != null)
+            {
+                button.onClick.Invoke();
+                return;
+            }
+
+            Dropdown dropdown = currentSelected.GetComponent<Dropdown>();
+            if (dropdown != null)
+            {
+                dropdown.Show();
+            }
         }
     }
 }

@@ -110,40 +110,44 @@ public class ControlArma : MonoBehaviour
     }
 
     public void Disparar()
+{
+    if (audioSource != null && sonidoDisparo != null && pausa.juegoPausado == false)
     {
-        if (audioSource != null && sonidoDisparo != null && pausa.juegoPausado == false)
-        {
-            audioSource.PlayOneShot(sonidoDisparo);
-        }
-        if (currentAmmoInClip > 0 && pausa.juegoPausado == false)
-        {
-            animator.SetBool("isFiring", true);
-
-            GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
-            Bala balaScript = bala.GetComponent<Bala>();
-            if (balaScript != null)
-            {
-                balaScript.DireccionDisparo(ultimaDireccion);
-                balaScript.daño = 20; 
-            }
-
-            if (cameraShake != null)
-            {
-                cameraShake.ShakeCamera(2f, 0.1f); 
-            }
-
-            tiempoUltimoDisparo = Time.time; // Actualizar el tiempo del último disparo
-
-            currentAmmoInClip--; // Reducir munición en el cartucho
-            UpdateUI();
-
-            StartCoroutine(ResetFiring());
-        }
-        else
-        {
-            Debug.Log("Munición en cartucho agotada. Recarga el arma.");
-        }
+        audioSource.PlayOneShot(sonidoDisparo);
     }
+
+    if (currentAmmoInClip > 0 && pausa.juegoPausado == false)
+    {
+        animator.SetBool("isFiring", true);
+
+        // Instanciar la bala y obtener el script de la bala
+        GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
+        Bala balaScript = bala.GetComponent<Bala>();
+
+        if (balaScript != null)
+        {
+            
+            balaScript.DireccionDisparo(ultimaDireccion);
+        }
+
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeCamera(2f, 0.1f); 
+        }
+
+        tiempoUltimoDisparo = Time.time; 
+
+        currentAmmoInClip--; 
+        UpdateUI();
+
+        StartCoroutine(ResetFiring());
+    }
+    else
+    {
+        Debug.Log("Munición en cartucho agotada. Recarga el arma.");
+    }
+}
+
 
     public void Recargar()
     {

@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuSeleccionPersonaje : MonoBehaviour
 {
     private int index;
     [SerializeField] private Image imagen;
     [SerializeField] private Text nombre;
+    [SerializeField] private Button botonIniciarJuego; // Agrega esta línea
 
     private GameManager gameManager;
 
@@ -19,13 +21,18 @@ public class MenuSeleccionPersonaje : MonoBehaviour
 
         index = PlayerPrefs.GetInt("JugadorIndex");
 
-
-        if (index > gameManager.personajes.Count - 1 )
+        if (index > gameManager.personajes.Count - 1)
         {
             index = 0;
         }
 
         CambiarPantalla(); 
+
+        // Establece el enfoque en el botón "Iniciar Juego"
+        if (botonIniciarJuego != null)
+        {
+            EventSystem.current.SetSelectedGameObject(botonIniciarJuego.gameObject);
+        }
     }
 
     private void CambiarPantalla()

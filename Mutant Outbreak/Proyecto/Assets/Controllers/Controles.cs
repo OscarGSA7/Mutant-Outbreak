@@ -217,6 +217,17 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3c636282-801a-43eb-9b9f-efda26f3b54d"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Habilidad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""57241f37-daee-4c87-a5b7-5d2e81dde13c"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -360,17 +371,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5f102d6f-0693-4753-a9a1-20b2731c989d"",
                     ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Atras"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f341af22-bb4f-4d52-be5b-c971aa04ae6d"",
-                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

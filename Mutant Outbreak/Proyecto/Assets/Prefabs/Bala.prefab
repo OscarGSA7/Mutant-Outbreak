@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810c4a02825c2da48867a8c340bfd35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 50
-  velocidadBala: 30
+  "da\xF1o": 20
+  velocidadBala: 35
